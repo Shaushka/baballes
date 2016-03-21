@@ -4,8 +4,13 @@
 class Baballe{
     
 public:
-    void setup();
-    void update();
+    void setup(float x, float y, float radius);
+    void update(float x, float y);
     void draw();
     
+    float posx;
+    float posy;
+    float radius;
+    
+    Baballe();
 };

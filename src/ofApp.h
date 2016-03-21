@@ -24,6 +24,6 @@ class ofApp : public ofBaseApp{
 		
         float counter;
         vector<Baballe> baballes;
-
+        ofVec2f mouse;
 
 };

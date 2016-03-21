@@ -1,19 +1,13 @@
 #include "ofApp.h"
 #include "baballes.h"
 
-
-
-
-
-
-
 //--------------------------------------------------------------
 void ofApp::setup(){
     counter =   0;
     ofSetCircleResolution(50);
     ofBackground(255,255,255);
     ofSetWindowTitle("La Baballe");
-    ofSetFrameRate(60);
+    ofSetFrameRate(1);
     
     
     //balle1.setup(ofRandomWidth(), ofRandomHeight(), ofRandom(0, 40), );
@@ -23,7 +17,11 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     counter = counter + 0.033f;
-    
+    std::cout << "ofApp::update : mouse.x : " << mouse.x << ", mouse.y : " << mouse.y << std::endl;
+    for(int i = 0; i < baballes.size(); i++){
+        Baballe b = baballes[i];
+        b.update(mouse.x, mouse.y);
+    }
 }
 
 //--------------------------------------------------------------
@@ -40,6 +38,13 @@ void ofApp::draw(){
         ofDrawCircle((*balles).pos.x, (*balles).pos.y, (*balles).radius);
     }
 }*/
+    
+    for(int i = 0;i<baballes.size();i++){
+        Baballe b = baballes[i];
+        b.draw();
+        ofLogNotice("lol")<< b.posx;
+    }
+    
 }
 
 //--------------------------------------------------------------
@@ -53,8 +58,10 @@ void ofApp::keyReleased(int key){
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
+void ofApp::mouseMoved(int x, int y){
+    mouse.x = x;
+    mouse.y = y;
+    std::cout << "ofApp:mouseMoved : mouse.x : " << mouse.x << ", mouse.y : " << mouse.y << std::endl;
 }
 
 //--------------------------------------------------------------
@@ -69,10 +76,13 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-    ofLogNotice("j'ai clique ") << x;
+    ofLogNotice("ofApp::mouseReleased");
     Baballe b;
-    b.setup(x,y);
+    float r = ofRandom(10, 60);
+    ofLogNotice("R") << r;
+    b.setup(x,y,r);
     baballes.push_back(b);
+
 }
 
 //--------------------------------------------------------------
