@@ -23,5 +23,5 @@ void Baballe::draw(){
     std::cout << "Baballe::draw x : " << posx << ", y : " << posy << ", radius : " << radius << endl ;
 
     ofSetColor(255,130,0);
-    ofDrawCircle(10, posy, radius);
+    ofDrawCircle(posx, posy, radius);
 }
