@@ -1,17 +1,11 @@
-
-
-
-#include "ofApp.h"
+#pragma once
 #include "ofMain.h"
 
 class Baballe{
-    public :
+    
+public:
     void setup();
     void update();
     void draw();
     
-    ofVec2f pos;
-    ofVec2f dir;
-    float   radius;
-   // Baballe *next = NULL;
 };

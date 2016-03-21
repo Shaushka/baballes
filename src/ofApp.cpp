@@ -70,6 +70,9 @@ void ofApp::mousePressed(int x, int y, int button){
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
     ofLogNotice("j'ai clique ") << x;
+    Baballe b;
+    b.setup(x,y);
+    baballes.push_back(b);
 }
 
 //--------------------------------------------------------------

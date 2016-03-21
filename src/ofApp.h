@@ -23,7 +23,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		
         float counter;
-        Baballe balle1;
+        vector<Baballe> baballes;
 
 
 };
